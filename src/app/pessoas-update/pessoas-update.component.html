@@ -1,0 +1,32 @@
+<h3 style="text-align: center;">Editar cadastro de Pessoa</h3>
+<div [hidden]="submitted" style="width: 800px; margin: auto;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Nome:</label>
+        <input type="text" class="form-control" id="nome" required [(ngModel)]="pessoas.nome" name="nome">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Cargo:</label>
+        <input type="text" class="form-control" id="cargo" required [(ngModel)]="pessoas.cargo" name="cargo">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">CPF:</label>
+        <input type="text" class="form-control" id="cpf" mask="000.000.000-00" required [(ngModel)]="pessoas.cpf" name="cpf">
+      </div>
+  
+      <div class="form-group">
+          <label for="name">Foto</label>
+          <input type="file"  multiple = "multiple" class="form-control" id="foto" (change)="handleFileInput($event.target.files); displayPhoto($event) " required name="foto">
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-2 col-form-label text-right"></div>
+        <img id = "img" src="{{url + pessoas.foto}}" [src]="imageSrc" height="100">
+      </div>  
+
+      <button type="submit" class="btn btn-success">Salvar</button>
+      <a style = "margin-left:2px;" class="btn btn-danger" href="pessoas">Cancelar</a>
+  </form>
+</div>

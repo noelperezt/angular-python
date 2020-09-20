@@ -1,0 +1,34 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Lista de Pessoas</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>CPF</th>
+            <th>Foto</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pessoa of pessoas | async">
+            <td>{{pessoa.id}}</td>
+            <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.cargo}}</td>
+            <td>{{formataCPF(pessoa.cpf)}}</td>
+            <td><center><img src="{{url + pessoa.foto}}" height="40"></center></td>
+            <td>
+                <center>
+                    <button (click)="updatePessoas(pessoa.id)" class="btn btn-info" style="margin-left: 10px"><i class="fa fa-edit"></i></button>
+                    <button style = "margin-left: 2px;" (click)="deletePessoas(pessoa.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                </center>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

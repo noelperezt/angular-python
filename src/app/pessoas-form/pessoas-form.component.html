@@ -1,0 +1,32 @@
+<h3 style = "text-align: center;">Cadastrar Pessoas</h3>
+<div [hidden]="submitted" style="width: 800px; margin:auto">
+  <form (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="name">Nome:</label>
+      <input type="text" class="form-control" id="nome" required [(ngModel)]="pessoas.nome" name="nome">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Cargo:</label>
+      <input type="text" class="form-control" id="cargo" required [(ngModel)]="pessoas.cargo" name="cargo">
+    </div>
+
+    <div class="form-group">
+      <label for="name">CPF:</label>
+      <input type="text" class="form-control" id="cpf" mask="000.000.000-00" required [(ngModel)]="pessoas.cpf" name="cpf">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Foto:</label>
+        <input type="file"  multiple = "multiple" class="form-control" id="foto" (change)="handleFileInput($event.target.files)" required name="foto">
+    </div>
+   
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a style = "margin-left:2px;" class="btn btn-danger" href="pessoas">Cancelar</a>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>
